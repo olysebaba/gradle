@@ -27,7 +27,7 @@ class JavaTestExecutionPerformanceTest extends AbstractCrossVersionPerformanceTe
         runner.tasksToRun = gradleTasks
         runner.targetVersions = targetVersions
         runner.useDaemon = true
-        runner.gradleOpts = ['-Xms1G', '-Xmx1G']
+        runner.gradleOpts = ['-Xmx1G']
 
         when:
         def result = runner.run()
@@ -49,7 +49,7 @@ class JavaTestExecutionPerformanceTest extends AbstractCrossVersionPerformanceTe
         runner.tasksToRun = gradleTasks
         runner.targetVersions = ['2.11', '3.3-20161028000018+0000']
         runner.useDaemon = true
-        runner.gradleOpts = ['-Xms1G', '-Xmx1G']
+        runner.gradleOpts = ['-Xmx1G']
         runner.buildExperimentListener = new JavaOldModelSourceFileUpdater(10)
 
         when:

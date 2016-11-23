@@ -22,26 +22,13 @@ import org.junit.experimental.categories.Category
 @Category(BasicPerformanceTest)
 class ManyEmptyProjectsHelpPerformanceTest extends AbstractCrossVersionPerformanceTest {
 
-    def "many empty projects help"() {
-        given:
-        runner.testId = "many empty projects help"
-        runner.testProject = "bigEmpty"
-        runner.tasksToRun = ['help']
-        runner.targetVersions = ['3.0', 'last']
-
-        when:
-        def result = runner.run()
-
-        then:
-        result.assertCurrentVersionHasNotRegressed()
-    }
-
     def "many empty projects help (daemon)"() {
         given:
         runner.testId = "many empty projects help (daemon)"
         runner.testProject = "bigEmpty"
         runner.tasksToRun = ['help']
         runner.targetVersions = ['3.3-20161028000018+0000', 'last']
+        runner.gradleOpts = ['-Xmx1g']
         runner.useDaemon = true
 
         when:
