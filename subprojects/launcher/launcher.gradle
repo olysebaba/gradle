@@ -25,6 +25,7 @@ dependencies {
     integTestCompile files(Jvm.current().toolsJar?:[])
     integTestRuntime project(':plugins')
     integTestRuntime project(':languageNative')
+    integTestRuntime project(':compositeBuilds')
 
     testFixturesCompile project(':internalIntegTesting')
 
